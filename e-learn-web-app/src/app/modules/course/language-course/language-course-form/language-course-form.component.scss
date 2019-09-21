@@ -1,0 +1,21 @@
+
+.row-space-top-2 {
+  margin-top: 20px;
+}
+
+.row-space-top-6 {
+  margin-top: 60px;
+}
+
+.row-space-top-12 {
+    margin-top: 120px;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
