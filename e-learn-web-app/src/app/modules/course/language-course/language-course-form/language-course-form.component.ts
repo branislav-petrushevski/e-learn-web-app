@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import language_questions from '../../../../../assets/questions.json';
+import { MatDialog } from '@angular/material';
+
+import {  Inject } from '@angular/core';
+import { MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'language-course-form',
@@ -16,7 +20,7 @@ export class LanguageCourseFormComponent implements OnInit {
   private currentAnswer: any;
   private correctAnswer: any;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, public dialog: MatDialog) { }
 
   ngOnInit() {
     const self = this;
@@ -31,14 +35,26 @@ export class LanguageCourseFormComponent implements OnInit {
     self.currentAnswer = answer;
   }
 
-  public onAnswerSubmitted(): void {
+  public openDialog() {
     const self = this;
- 
-    if (self.currentAnswer == self.correctAnswer) {
-      console.log("correct answer");
-    } else {
-      console.log("incorrect answer");
-    }
+
+    self.dialog.open(DialogDataExampleDialog, {
+      data: {
+        correct: self.correctAnswer == self.currentAnswer
+      }
+    });
   }
 
+}
+
+export interface DialogData {
+  correct: true | false;
+}
+
+@Component({
+  selector: 'dialog-data-example-dialog',
+  templateUrl: 'dialog-data-example-dialog.html',
+})
+export class DialogDataExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }

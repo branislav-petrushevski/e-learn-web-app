@@ -5,16 +5,20 @@ import { CommonModule } from '@angular/common';
 import { LanguageCourseComponent } from './language-course.component';
 import { LanguageCourseListComponent } from './language-course-list/language-course-list.component';
 import { SharedMaterialModule } from '../../shared/shared-material/shared-material.module';
-import { LanguageCourseFormComponent } from './language-course-form/language-course-form.component';
+import { LanguageCourseFormComponent, DialogDataExampleDialog } from './language-course-form/language-course-form.component';
 
 // Routing
 import { LanguageCourseRoutingModule } from './language-course-routing.module';
 
 @NgModule({
+  entryComponents: [
+    DialogDataExampleDialog
+  ],
   declarations: [
     LanguageCourseComponent, 
     LanguageCourseListComponent, 
-    LanguageCourseFormComponent
+    LanguageCourseFormComponent,
+    DialogDataExampleDialog
   ],
   imports: [
     CommonModule,
