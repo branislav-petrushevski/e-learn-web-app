@@ -1,11 +1,12 @@
 // Angular
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 import { SharedMaterialModule } from './modules/shared/shared-material/shared-material.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Components
 import { AppComponent } from './app.component';
@@ -16,9 +17,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule,
-    SharedMaterialModule, // import angular material modules after BrowserModule because the import order matters for NgModules
-    BrowserAnimationsModule
+    SharedMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

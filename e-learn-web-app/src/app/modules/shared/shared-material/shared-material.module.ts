@@ -1,14 +1,14 @@
 // Angular
 import { NgModule } from '@angular/core';
-
-// Modules
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatMenuModule } from '@angular/material/menu';
-import { PortalModule } from '@angular/cdk/portal';
-import { MatIconModule } from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { 
+  MatButtonModule, 
+  MatIconModule, 
+  MatMenuModule,
+  MatToolbarModule,
+  MatCardModule,
+  MatListModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -16,20 +16,20 @@ import {MatToolbarModule} from '@angular/material/toolbar';
   ],
   imports: [
     CommonModule,
-    MatButtonModule,
-    MatCheckboxModule,
+    MatButtonModule, 
+    MatIconModule, 
     MatMenuModule,
-    PortalModule,
-    MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatListModule
   ],
   exports: [
-    MatButtonModule,
-    MatCheckboxModule,
+    MatButtonModule, 
+    MatIconModule, 
     MatMenuModule,
-    PortalModule,
-    MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatListModule
   ]
 })
 export class SharedMaterialModule { }
