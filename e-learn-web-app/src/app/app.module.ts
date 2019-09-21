@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
-import { SharedNavModule } from './modules/shared/shared-nav/shared-nav.module';
+import { SharedMaterialModule } from './modules/shared/shared-material/shared-material.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
-    SharedNavModule
+    SharedMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
