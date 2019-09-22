@@ -10,8 +10,6 @@ export class LanguageCourseListComponent implements OnInit {
 
   public items: any[];
 
-  constructor() { }
-
   ngOnInit() {
     const self = this;
     self.items = language_questions;

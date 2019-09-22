@@ -1,38 +1,35 @@
 // Angular
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MatDialog } from '@angular/material';
-import { MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
 // Data
-import language_questions from '../../../../../assets/questions.json';
-
-// Enums
-import { LanguageQuestionType } from '../../models/enums.js';
+import math_questions from '../../../../../assets/math_questions.json';
+import { MathQuestionType } from '../../models/enums.js';
 
 @Component({
-  selector: 'language-course-form',
-  templateUrl: './language-course-form.component.html',
-  styleUrls: ['./language-course-form.component.scss']
+  selector: 'app-math-course-form',
+  templateUrl: './math-course-form.component.html',
+  styleUrls: ['./math-course-form.component.scss']
 })
-export class LanguageCourseFormComponent implements OnInit {
+export class MathCourseFormComponent implements OnInit {
 
   public questionId: string;
   public questions: any[];
   public currentQuestion: any;
+
+  public countingQuestionType: MathQuestionType = MathQuestionType.Counting;
+  public comparingQuestionType: MathQuestionType = MathQuestionType.Comparing;
   
   private currentAnswer: any;
   private correctAnswer: any;
-
-  public letterIdentificationType: LanguageQuestionType = LanguageQuestionType.LetterIdentification;
-  public analysisType: LanguageQuestionType = LanguageQuestionType.Analysis;
 
   constructor(private route: ActivatedRoute, public dialog: MatDialog) { }
 
   ngOnInit() {
     const self = this;
     self.questionId = self.route.snapshot.paramMap.get('id');
-    self.questions = language_questions;
+    self.questions = math_questions;
     self.currentQuestion = self.questions.find(x => x.id == self.questionId);
     self.correctAnswer = self.currentQuestion.correctAnswer;
   }
@@ -67,3 +64,4 @@ export interface DialogData {
 export class DialogDataExampleDialog {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }
+
