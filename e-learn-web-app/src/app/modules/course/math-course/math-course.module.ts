@@ -7,6 +7,7 @@ import { MathCourseListComponent } from './math-course-list/math-course-list.com
 
 import { SharedMaterialModule } from '../../shared/shared-material/shared-material.module';
 import { MathCourseFormComponent, DialogDataExampleDialog } from './math-course-form/math-course-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   entryComponents: [
@@ -21,6 +22,8 @@ import { MathCourseFormComponent, DialogDataExampleDialog } from './math-course-
   imports: [
     CommonModule,
     MathCourseRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedMaterialModule
   ]
 })

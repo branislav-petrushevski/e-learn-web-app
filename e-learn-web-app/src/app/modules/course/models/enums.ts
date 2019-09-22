@@ -6,5 +6,6 @@ export enum LanguageQuestionType {
 
 export enum MathQuestionType {
     Counting = 1,
-    Comparing = 2
+    Comparing = 2,
+    Memory = 3
 }

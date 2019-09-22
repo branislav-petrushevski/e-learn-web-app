@@ -59,5 +59,14 @@
         "availableAnswers": [
             "Group 1", "Group 2"
         ]
+    },
+    {
+        "id": 5,
+        "type": 3,
+        "title": "How many times the light bulb was turned on ?",
+        "firstImageUrl": "../../../../../assets/images/lightbulb_off.jpg",
+        "secondImageUrl": "../../../../../assets/images/lightbulb_on.jpg",
+        "correctAnswer": "",
+        "availableAnswers": [ ]
     }
 ]

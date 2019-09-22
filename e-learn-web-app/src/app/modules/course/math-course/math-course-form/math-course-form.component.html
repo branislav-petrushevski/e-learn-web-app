@@ -1,32 +1,5 @@
-<div class="example-container row-space-top-12" *ngIf="currentQuestion.type == countingQuestionType">
-  <div class="row justify-content-center">
-      <div class="col-md-3">
-        <label>
-            Question: {{ currentQuestion.title }}
-        </label>
-      </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-2" *ngFor="let url of currentQuestion.imageUrls">
-        <img width="200px" src="{{url}}"/>
-    </div>
-  </div>
-  <div class="row row-space-top-2 justify-content-center">
-      <div class="col-md-1" *ngFor="let item of currentQuestion.availableAnswers">
-        <button mat-button color="primary" (click)="onAnswerSelected(item)">
-          {{ item }}
-        </button>
-      </div>
-    </div>
-    <div class="row row-space-top-6 justify-content-center">
-      <div class="col-md-2 .col-offset-md-4">
-        <button mat-button color="primary" (click)="openDialog()">
-            SUBMIT ANSWER
-        </button>
-      </div>
-    </div>
-</div>
-<div class="example-container row-space-top-12" *ngIf="currentQuestion.type == comparingQuestionType">
+<form [formGroup]="myForm" no-validate>
+  <div class="example-container row-space-top-12" *ngIf="currentQuestion.type == countingQuestionType">
     <div class="row justify-content-center">
         <div class="col-md-3">
           <label>
@@ -35,14 +8,9 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-2" *ngFor="let url of currentQuestion.firstGroupImageUrls">
-            <img width="100px" height="100px" src="{{url}}"/>
-        </div>
-    </div>
-    <div class="row row-space-top-2 justify-content-center">
-        <div class="col-2" *ngFor="let url of currentQuestion.secondGroupImageUrls">
-            <img width="100px" height="100px" src="{{url}}"/>
-        </div>
+      <div class="col-2" *ngFor="let url of currentQuestion.imageUrls">
+          <img width="200px" src="{{url}}"/>
+      </div>
     </div>
     <div class="row row-space-top-2 justify-content-center">
         <div class="col-md-1" *ngFor="let item of currentQuestion.availableAnswers">
@@ -52,10 +20,68 @@
         </div>
       </div>
       <div class="row row-space-top-6 justify-content-center">
-        <div class="col-md-2 .col-offset-md-2">
+        <div class="col-md-2 .col-offset-md-4">
           <button mat-button color="primary" (click)="openDialog()">
               SUBMIT ANSWER
           </button>
         </div>
       </div>
-</div>
+  </div>
+  <div class="example-container row-space-top-12" *ngIf="currentQuestion.type == comparingQuestionType">
+      <div class="row justify-content-center">
+          <div class="col-md-3">
+            <label>
+                Question: {{ currentQuestion.title }}
+            </label>
+          </div>
+      </div>
+      <div class="row justify-content-center">
+          <div class="col-2" *ngFor="let url of currentQuestion.firstGroupImageUrls">
+              <img width="100px" height="100px" src="{{url}}"/>
+          </div>
+      </div>
+      <div class="row row-space-top-2 justify-content-center">
+          <div class="col-2" *ngFor="let url of currentQuestion.secondGroupImageUrls">
+              <img width="100px" height="100px" src="{{url}}"/>
+          </div>
+      </div>
+      <div class="row row-space-top-2 justify-content-center">
+          <div class="col-md-1" *ngFor="let item of currentQuestion.availableAnswers">
+            <button mat-button color="primary" (click)="onAnswerSelected(item)">
+              {{ item }}
+            </button>
+          </div>
+        </div>
+        <div class="row row-space-top-6 justify-content-center">
+          <div class="col-md-2 .col-offset-md-2">
+            <button mat-button color="primary" (click)="openDialog()">
+                SUBMIT ANSWER
+            </button>
+          </div>
+      </div>
+  </div>
+  <div class="example-container row-space-top-12" *ngIf="currentQuestion.type == memoryQuestionType">
+    <div class="row justify-content-center">
+      <div class="col-md-3">
+        <label>
+            Question: {{ currentQuestion.title }}
+        </label>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+        <img width="200px" height="200px" src="{{memoryImageUrl}}"/>
+    </div>
+    <div class="row row-space-top-12 justify-content-center">
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter value" formControlName="numberOfTicks">
+      </mat-form-field>
+    </div>
+    <div class="row row-space-top-6 justify-content-center">
+      <div class="col-md-2 .col-offset-md-2">
+        <button mat-button color="primary" (click)="openDialog()">
+            SUBMIT ANSWER
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
