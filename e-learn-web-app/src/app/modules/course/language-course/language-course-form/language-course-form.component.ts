@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+// Angular
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import language_questions from '../../../../../assets/questions.json';
 import { MatDialog } from '@angular/material';
-
-import {  Inject } from '@angular/core';
 import { MAT_DIALOG_DATA} from '@angular/material/dialog';
+
+// Data
+import language_questions from '../../../../../assets/questions.json';
+
+// Enums
 import { LanguageQuestionType } from '../../models/enums.js';
 
 @Component({

@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "type": 1,
+        "title": "How many planes are there ?",
+        "imageUrls": [
+            "../../../../../assets/images/plane_math.svg",
+            "../../../../../assets/images/plane_math.svg",
+            "../../../../../assets/images/plane_math.svg"
+        ],
+        "correctAnswer": "3",
+        "availableAnswers": [
+            "1", "2", "3"
+        ]
+    },
+    {
+        "id": 2,
+        "type": 1,
+        "title": "How many teddy bears are there ?",
+        "imageUrls": [
+            "../../../../../assets/images/bear_math.svg",
+            "../../../../../assets/images/bear_math.svg"
+        ],
+        "correctAnswer": "2",
+        "availableAnswers": [
+            "4", "2", "7"
+        ]
+    },
+    {
+        "id": 3,
+        "type": 2,
+        "title": "Which group has more elements ?",
+        "firstGroupImageUrls": [
+            "../../../../../assets/images/pillow.svg",
+            "../../../../../assets/images/pillow.svg",
+            "../../../../../assets/images/pillow.svg"
+        ],
+        "secondGroupImageUrls": [
+            "../../../../../assets/images/sleepingbag.svg"
+        ],
+        "correctAnswer": "Group 1",
+        "availableAnswers": [
+            "Group 1", "Group 2"
+        ]
+    },
+    {
+        "id": 4,
+        "type": 2,
+        "title": "Which group has less elements ?",
+        "firstGroupImageUrls": [
+            "../../../../../assets/images/marshmallow.svg",
+            "../../../../../assets/images/marshmallow.svg",
+            "../../../../../assets/images/marshmallow.svg"
+        ],
+        "secondGroupImageUrls": [
+            "../../../../../assets/images/coffeemug.svg"
+        ],
+        "correctAnswer": "Group 2",
+        "availableAnswers": [
+            "Group 1", "Group 2"
+        ]
+    },
+    {
+        "id": 5,
+        "type": 3,
+        "title": "How many times the light bulb was turned on ?",
+        "firstImageUrl": "../../../../../assets/images/lightbulb_off.jpg",
+        "secondImageUrl": "../../../../../assets/images/lightbulb_on.jpg",
+        "correctAnswer": "",
+        "availableAnswers": [ ]
+    }
+]
