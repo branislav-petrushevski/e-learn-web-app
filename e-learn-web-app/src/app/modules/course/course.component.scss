@@ -2,8 +2,13 @@
     max-width: 400px;
   }
   
-  .example-header-image {
+  .example-header-language {
     background-image: url('../../../assets/images/language_arts.jpg');
+    background-size: cover;
+  }
+
+  .example-header-math {
+    background-image: url('../../../assets/images/geometry.jpg');
     background-size: cover;
   }
 

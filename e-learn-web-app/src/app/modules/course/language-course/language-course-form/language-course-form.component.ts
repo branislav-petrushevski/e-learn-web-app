@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material';
 
 import {  Inject } from '@angular/core';
 import { MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { LanguageQuestionType } from '../../models/enums.js';
 
 @Component({
   selector: 'language-course-form',
@@ -19,6 +20,9 @@ export class LanguageCourseFormComponent implements OnInit {
   
   private currentAnswer: any;
   private correctAnswer: any;
+
+  public letterIdentificationType: LanguageQuestionType = LanguageQuestionType.LetterIdentification;
+  public analysisType: LanguageQuestionType = LanguageQuestionType.Analysis;
 
   constructor(private route: ActivatedRoute, public dialog: MatDialog) { }
 
@@ -39,6 +43,8 @@ export class LanguageCourseFormComponent implements OnInit {
     const self = this;
 
     self.dialog.open(DialogDataExampleDialog, {
+      width: '300px',
+      height: '150px',
       data: {
         correct: self.correctAnswer == self.currentAnswer
       }
