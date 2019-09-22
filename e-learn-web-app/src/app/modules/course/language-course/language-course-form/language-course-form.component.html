@@ -1,0 +1,56 @@
+<div class="example-container row-space-top-12" *ngIf="currentQuestion.type == letterIdentificationType">
+    <div class="row">
+      <div class="col-md-4">
+        <label>
+            Question: {{ currentQuestion.title }}
+        </label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+          <label>
+              Available answers:
+          </label>
+        </div>
+      </div>
+    <div class="row row-space-top-2 justify-content-left">
+      <div class="col-md-1" *ngFor="let item of currentQuestion.availableAnswers">
+        <button mat-button color="primary" (click)="onAnswerSelected(item)">
+          {{ item }}
+        </button>
+      </div>
+    </div>
+    <div class="row row-space-top-6">
+      <div class="col-md-4">
+        <button mat-button color="primary" (click)="openDialog()">
+            SUBMIT ANSWER
+        </button>
+      </div>
+    </div>
+</div>
+<div class="example-container row-space-top-12" *ngIf="currentQuestion.type == analysisType">
+  <div class="row justify-content-center">
+      <div class="col-md-3">
+        <label>
+            Question: {{ currentQuestion.title }}
+        </label>
+      </div>
+  </div>
+  <div class="row justify-content-center">
+      <img src="{{currentQuestion.imageUrl}}"/>
+  </div>
+  <div class="row row-space-top-2 justify-content-center">
+      <div class="col-md-1" *ngFor="let item of currentQuestion.availableAnswers">
+        <button mat-button color="primary" (click)="onAnswerSelected(item)">
+          {{ item }}
+        </button>
+      </div>
+    </div>
+    <div class="row row-space-top-6 justify-content-center">
+      <div class="col-md-2 .col-offset-md-4">
+        <button mat-button color="primary" (click)="openDialog()">
+            SUBMIT ANSWER
+        </button>
+      </div>
+    </div>
+</div>

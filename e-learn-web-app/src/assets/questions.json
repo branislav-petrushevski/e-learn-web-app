@@ -1,23 +1,101 @@
 [
     {
+        "id": 1,
+        "type": 1,
         "title": "Find the letter a - lowercase",
         "correctAnswer": "a",
         "availableAnswers": [
-            "c", "b", "d", "a", "h", "z", "y"
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
+            "u", "v", "w", "x", "y", "z"
         ]
     },
     {
+        "id": 2,
+        "type": 1,
         "title": "Find the letter T - uppercase",
         "correctAnswer": "T",
         "availableAnswers": [
-            "D", "F", "Y", "T", "A", "B", "J"
+            "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
+            "U", "V", "W", "X", "Y", "Z"
         ]
     },
     {
-        "title": "Choose 2 words that are the same",
-        "correctAnswer": "T",
+        "id": 3,
+        "type": 1,
+        "title": "Choose the lowercase letter that matches the letter H",
+        "correctAnswer": "h",
         "availableAnswers": [
-            "D", "F", "Y", "T", "A", "B", "J"
+            "a", "f", "y", "h", "a", "b", "j"
+        ]
+    },
+    {
+        "id": 4,
+        "type": 2,
+        "title": "How do children feel ?",
+        "imageUrl": "../../../../../assets/images/surprised_children.svg",
+        "correctAnswer": "surprised",
+        "availableAnswers": [
+            "surprised", "upset"
+        ]
+    },
+    {
+        "id": 5,
+        "type": 2,
+        "title": "How does the girl feel ?",
+        "imageUrl": "../../../../../assets/images/surprised_girl.svg",
+        "correctAnswer": "happy",
+        "availableAnswers": [
+            "happy", "sad"
+        ]
+    },
+    {
+        "id": 6,
+        "type": 2,
+        "title": "How does the family feel ?",
+        "imageUrl": "../../../../../assets/images/excited_family.svg",
+        "correctAnswer": "excited",
+        "availableAnswers": [
+            "envious", "excited"
+        ]
+    },
+    {
+        "id": 7,
+        "type": 2,
+        "title": "How many toys are there ?",
+        "imageUrl": "../../../../../assets/images/toys_how_many.svg",
+        "correctAnswer": "five",
+        "availableAnswers": [
+            "three", "five"
+        ]
+    },
+    {
+        "id": 8,
+        "type": 2,
+        "title": "How many flowers are there ?",
+        "imageUrl": "../../../../../assets/images/flowers_how_many.svg",
+        "correctAnswer": "one",
+        "availableAnswers": [
+            "one", "ten", "five"
+        ]
+    },
+    {
+        "id": 9,
+        "type": 2,
+        "title": "How many turtles are there ?",
+        "imageUrl": "../../../../../assets/images/turtles_how_many.svg",
+        "correctAnswer": "two",
+        "availableAnswers": [
+            "six", "two", "eleven"
+        ]
+    },
+    {
+        "id": 10,
+        "type": 2,
+        "title": "Which word matches the picture ?",
+        "imageUrl": "../../../../../assets/images/bees_what_matches.svg",
+        "correctAnswer": "bees",
+        "availableAnswers": [
+            "bee", "bees", "elephants", "lions"
         ]
     }
 ]

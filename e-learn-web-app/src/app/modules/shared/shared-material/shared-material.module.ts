@@ -7,7 +7,11 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatCardModule,
-  MatListModule
+  MatListModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatInputModule,
+  MatDialogModule
 } from '@angular/material';
 
 @NgModule({
@@ -21,7 +25,11 @@ import {
     MatMenuModule,
     MatToolbarModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule, 
@@ -29,7 +37,11 @@ import {
     MatMenuModule,
     MatToolbarModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDialogModule
   ]
 })
 export class SharedMaterialModule { }
