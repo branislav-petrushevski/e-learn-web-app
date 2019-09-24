@@ -1,24 +1,28 @@
 <div class="container">
-    <div class="row row-space-top-12 justify-content-center">
-        <div class="col-md-4">
+    <div class="row eq-height row-space-top-12 justify-content-center">
+        <div class="col-lg-4 col-md-6 row-space-top-6">
             <mat-card class="example-card">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-language"></div>
                     <mat-card-title>Language arts</mat-card-title>
                     <mat-card-subtitle>Letter identification</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image src="../../../assets/images/language_arts.jpg" alt="Letter identification image">
+                <img mat-card-image width="50x" height="160px" src="../../../assets/images/language_arts.jpg" alt="Letter identification image">
                 <mat-card-content>
                     <p>
                         Find the letter in the given alphabet
                     </p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-button color="primary" routerLink="/courses/language-course" routerLinkActive="active">GO TO</button>
+                    <div class="row justify-content-center">
+                        <div class="col-6">
+                            <button mat-button color="primary" routerLink="/courses/language-course" routerLinkActive="active">START COURSE</button>
+                        </div>
+                    </div>
                 </mat-card-actions>
             </mat-card>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6 row-space-top-6 row-space-6">
             <mat-card class="example-card">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-math"></div>
@@ -32,7 +36,11 @@
                     </p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-button color="primary" routerLink="/courses/math-course" routerLinkActive="active">GO TO</button>
+                    <div class="row justify-content-center">
+                        <div class="col-6">
+                            <button mat-button color="primary" routerLink="/courses/math-course" routerLinkActive="active">START COURSE</button>
+                        </div>
+                    </div>
                 </mat-card-actions>
             </mat-card>
         </div>
