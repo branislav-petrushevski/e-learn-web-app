@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { MAT_DIALOG_DATA} from '@angular/material/dialog';
 
+import Speech from 'speak-tts' // es6
+
 // Data
 import language_questions from '../../../../../assets/questions.json';
 
@@ -27,6 +29,8 @@ export class LanguageCourseFormComponent implements OnInit {
   public letterIdentificationType: LanguageQuestionType = LanguageQuestionType.LetterIdentification;
   public analysisType: LanguageQuestionType = LanguageQuestionType.Analysis;
 
+  private speech: Speech;
+
   constructor(private route: ActivatedRoute, public dialog: MatDialog, private _router: Router) { }
 
   ngOnInit() {
@@ -35,6 +39,34 @@ export class LanguageCourseFormComponent implements OnInit {
     self.questions = language_questions;
     self.currentQuestion = self.questions.find(x => x.id == self.questionId);
     self.correctAnswer = self.currentQuestion.correctAnswer;
+
+    self.speech = new Speech();
+    self.speech.init({
+      'volume': 2,
+        'lang': 'en-GB',
+        'rate': 2,
+        'pitch': 1,
+        'voice':'Google UK English Male',
+        'splitSentences': true,
+        'listeners': {
+            'onvoiceschanged': (voices) => {
+                console.log("Event voiceschanged", voices)
+            }
+        }
+    }).then((data) => {
+        // The "data" object contains the list of available voices and the voice synthesis params
+        console.log("Speech is ready, voices are available", data);
+    }).catch(e => {
+        console.error("An error occured while initializing : ", e);
+    });
+
+    self.speech.speak({
+      text: self.currentQuestion.title,
+    }).then(() => {
+        console.log("Success !")
+    }).catch(e => {
+        console.error("An error occurred :", e)
+    });
   }
 
   public onAnswerSelected(answer: string): void {
@@ -51,6 +83,14 @@ export class LanguageCourseFormComponent implements OnInit {
       data: {
         correct: self.correctAnswer == self.currentAnswer
       }
+    });
+
+    self.speech.speak({
+      text: self.correctAnswer == self.currentAnswer ? 'The answer is correct' : 'The answer is incorrect',
+    }).then(() => {
+        console.log("Success !")
+    }).catch(e => {
+        console.error("An error occurred :", e)
     });
   }
 
