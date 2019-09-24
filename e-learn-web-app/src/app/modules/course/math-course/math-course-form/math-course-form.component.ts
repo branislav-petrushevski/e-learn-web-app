@@ -1,12 +1,14 @@
 // Angular
 import { Component, OnInit, Inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
-import {FormControl, FormGroupDirective, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 // Data
 import math_questions from '../../../../../assets/math_questions.json';
 import { MathQuestionType } from '../../models/enums.js';
+
+import Speech from 'speak-tts' // es6
 
 @Component({
   selector: 'app-math-course-form',
@@ -28,13 +30,15 @@ export class MathCourseFormComponent implements OnInit {
   private currentAnswer: any;
   private correctAnswer: any;
 
-  private timeLeft: number = 1000;
+  private timeLeft: number = 10;
   private interval: any;
   private numberOfTicksAnswer: number = 0;
 
   public myForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, public dialog: MatDialog) { 
+  private speech: Speech;
+
+  constructor(private route: ActivatedRoute, public dialog: MatDialog, private _router: Router) { 
     this.myForm = new FormGroup({
       numberOfTicks: new FormControl(0, [ Validators.required])
     });
@@ -59,11 +63,43 @@ export class MathCourseFormComponent implements OnInit {
           } else {
             self.memoryImageUrl = self.currentQuestion.firstImageUrl;
           }
-        } else {
-          self.timeLeft = 60;
-        }
+        } 
       },1000)
     }
+
+    self.initSpeech();
+  }
+
+  private initSpeech(): void {
+    const self = this;
+
+    self.speech = new Speech();
+    self.speech.init({
+      'volume': 2,
+        'lang': 'en-GB',
+        'rate': 2,
+        'pitch': 1,
+        'voice':'Google UK English Male',
+        'splitSentences': true,
+        'listeners': {
+            'onvoiceschanged': (voices) => {
+                console.log("Event voiceschanged", voices)
+            }
+        }
+    }).then((data) => {
+        // The "data" object contains the list of available voices and the voice synthesis params
+        console.log("Speech is ready, voices are available", data);
+    }).catch(e => {
+        console.error("An error occured while initializing : ", e);
+    });
+
+    self.speech.speak({
+      text: self.currentQuestion.title,
+    }).then(() => {
+        console.log("Success !")
+    }).catch(e => {
+        console.error("An error occurred :", e)
+    });
   }
 
   public onAnswerSelected(answer: string): void {
@@ -85,6 +121,14 @@ export class MathCourseFormComponent implements OnInit {
           correct: self.numberOfTicksAnswer == self.myForm.controls['numberOfTicks'].value
         }
       });
+
+      self.speech.speak({
+        text: self.numberOfTicksAnswer == self.myForm.controls['numberOfTicks'].value ? 'The answer is correct' : 'The answer is incorrect',
+      }).then(() => {
+          console.log("Success !")
+      }).catch(e => {
+          console.error("An error occurred :", e)
+      });
     } else {
       self.dialog.open(DialogDataExampleDialog, {
         width: '300px',
@@ -93,7 +137,20 @@ export class MathCourseFormComponent implements OnInit {
           correct: self.correctAnswer == self.currentAnswer
         }
       });
+
+      self.speech.speak({
+        text: self.correctAnswer == self.currentAnswer ? 'The answer is correct' : 'The answer is incorrect',
+      }).then(() => {
+          console.log("Success !")
+      }).catch(e => {
+          console.error("An error occurred :", e)
+      });
     }
+  }
+
+  public goBack(): void {
+    const self = this;
+    self._router.navigate(['courses/math-course']);
   }
 }
 
