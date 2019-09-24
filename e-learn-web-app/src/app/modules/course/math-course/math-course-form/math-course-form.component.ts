@@ -1,8 +1,8 @@
 // Angular
 import { Component, OnInit, Inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
-import {FormControl, FormGroupDirective, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 // Data
 import math_questions from '../../../../../assets/math_questions.json';
@@ -28,13 +28,13 @@ export class MathCourseFormComponent implements OnInit {
   private currentAnswer: any;
   private correctAnswer: any;
 
-  private timeLeft: number = 1000;
+  private timeLeft: number = 10;
   private interval: any;
   private numberOfTicksAnswer: number = 0;
 
   public myForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, public dialog: MatDialog) { 
+  constructor(private route: ActivatedRoute, public dialog: MatDialog, private _router: Router) { 
     this.myForm = new FormGroup({
       numberOfTicks: new FormControl(0, [ Validators.required])
     });
@@ -59,9 +59,7 @@ export class MathCourseFormComponent implements OnInit {
           } else {
             self.memoryImageUrl = self.currentQuestion.firstImageUrl;
           }
-        } else {
-          self.timeLeft = 60;
-        }
+        } 
       },1000)
     }
   }
@@ -94,6 +92,11 @@ export class MathCourseFormComponent implements OnInit {
         }
       });
     }
+  }
+
+  public goBack(): void {
+    const self = this;
+    self._router.navigate(['courses/math-course']);
   }
 }
 

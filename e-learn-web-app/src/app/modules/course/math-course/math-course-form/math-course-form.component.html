@@ -1,7 +1,14 @@
+<div class="row row-space-top-6 justify-content-right">
+    <div class="col-1 offset-11">
+        <button mat-stroked-button color="primary" (click)="goBack()">
+            GO BACK
+        </button>
+    </div>
+</div>
 <form [formGroup]="myForm" no-validate>
   <div class="example-container row-space-top-12" *ngIf="currentQuestion.type == countingQuestionType">
     <div class="row justify-content-center">
-        <div class="col-md-3">
+        <div class="col-4">
           <label>
               Question: {{ currentQuestion.title }}
           </label>
@@ -29,7 +36,7 @@
   </div>
   <div class="example-container row-space-top-12" *ngIf="currentQuestion.type == comparingQuestionType">
       <div class="row justify-content-center">
-          <div class="col-md-3">
+          <div class="col-4">
             <label>
                 Question: {{ currentQuestion.title }}
             </label>
@@ -62,7 +69,7 @@
   </div>
   <div class="example-container row-space-top-12" *ngIf="currentQuestion.type == memoryQuestionType">
     <div class="row justify-content-center">
-      <div class="col-md-3">
+      <div class="col-4">
         <label>
             Question: {{ currentQuestion.title }}
         </label>
