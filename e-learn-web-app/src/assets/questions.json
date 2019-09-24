@@ -95,7 +95,7 @@
         "imageUrl": "../../../../../assets/images/bees_what_matches.svg",
         "correctAnswer": "bees",
         "availableAnswers": [
-            "bee", "bees", "elephants", "lions"
+            "bee", "bees", "elephants"
         ]
     }
 ]

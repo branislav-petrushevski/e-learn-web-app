@@ -1,28 +1,35 @@
+<div class="row row-space-top-6 justify-content-right">
+    <div class="col-1 offset-11">
+        <button mat-stroked-button color="primary" (click)="goBack()">
+            GO BACK
+        </button>
+    </div>
+</div>
 <div class="example-container row-space-top-12" *ngIf="currentQuestion.type == letterIdentificationType">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-12">
         <label>
             Question: {{ currentQuestion.title }}
         </label>
       </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-12">
           <label>
               Available answers:
           </label>
         </div>
       </div>
     <div class="row row-space-top-2 justify-content-left">
-      <div class="col-md-1" *ngFor="let item of currentQuestion.availableAnswers">
+      <div class="col-1" *ngFor="let item of currentQuestion.availableAnswers">
         <button mat-button color="primary" (click)="onAnswerSelected(item)">
           {{ item }}
         </button>
       </div>
     </div>
     <div class="row row-space-top-6">
-      <div class="col-md-4">
-        <button mat-button color="primary" (click)="openDialog()">
+      <div class="col-4">
+        <button mat-stroked-button color="primary" (click)="openDialog()">
             SUBMIT ANSWER
         </button>
       </div>
@@ -30,7 +37,7 @@
 </div>
 <div class="example-container row-space-top-12" *ngIf="currentQuestion.type == analysisType">
   <div class="row justify-content-center">
-      <div class="col-md-3">
+      <div class="col-4">
         <label>
             Question: {{ currentQuestion.title }}
         </label>
@@ -40,16 +47,16 @@
       <img src="{{currentQuestion.imageUrl}}"/>
   </div>
   <div class="row row-space-top-2 justify-content-center">
-      <div class="col-md-1" *ngFor="let item of currentQuestion.availableAnswers">
+      <div class="col-1" *ngFor="let item of currentQuestion.availableAnswers">
         <button mat-button color="primary" (click)="onAnswerSelected(item)">
           {{ item }}
         </button>
       </div>
     </div>
     <div class="row row-space-top-6 justify-content-center">
-      <div class="col-md-2 .col-offset-md-4">
-        <button mat-button color="primary" (click)="openDialog()">
-            SUBMIT ANSWER
+      <div class="col-2 .col-offset-4">
+        <button mat-stroked-button color="primary" (click)="openDialog()">
+            submit answer
         </button>
       </div>
     </div>

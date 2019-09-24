@@ -1,6 +1,6 @@
 // Angular
 import { Component, OnInit, Inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { MAT_DIALOG_DATA} from '@angular/material/dialog';
 
@@ -27,7 +27,7 @@ export class LanguageCourseFormComponent implements OnInit {
   public letterIdentificationType: LanguageQuestionType = LanguageQuestionType.LetterIdentification;
   public analysisType: LanguageQuestionType = LanguageQuestionType.Analysis;
 
-  constructor(private route: ActivatedRoute, public dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, public dialog: MatDialog, private _router: Router) { }
 
   ngOnInit() {
     const self = this;
@@ -52,6 +52,11 @@ export class LanguageCourseFormComponent implements OnInit {
         correct: self.correctAnswer == self.currentAnswer
       }
     });
+  }
+
+  public goBack(): void {
+    const self = this;
+    self._router.navigate(['courses/language-course']);
   }
 
 }
