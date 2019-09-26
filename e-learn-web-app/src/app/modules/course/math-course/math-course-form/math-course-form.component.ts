@@ -75,11 +75,11 @@ export class MathCourseFormComponent implements OnInit {
 
     self.speech = new Speech();
     self.speech.init({
-      'volume': 2,
-        'lang': 'en-GB',
-        'rate': 2,
+      'volume': 1,
+        'lang': 'en-US',
+        'rate': 1,
         'pitch': 1,
-        'voice':'Google UK English Male',
+        'voice':'Microsoft Zira Desktop - English (United States)',
         'splitSentences': true,
         'listeners': {
             'onvoiceschanged': (voices) => {
@@ -89,17 +89,20 @@ export class MathCourseFormComponent implements OnInit {
     }).then((data) => {
         // The "data" object contains the list of available voices and the voice synthesis params
         console.log("Speech is ready, voices are available", data);
+
+        self.speech.setVoice('Microsoft Zira Desktop - English (United States)'); // you can pass a SpeechSynthesisVoice as returned by the init() function or just its name
+
+        self.speech.speak({
+          text: self.currentQuestion.title,
+        }).then(() => {
+            console.log("Success !")
+        }).catch(e => {
+            console.error("An error occurred :", e)
+        });
     }).catch(e => {
         console.error("An error occured while initializing : ", e);
     });
 
-    self.speech.speak({
-      text: self.currentQuestion.title,
-    }).then(() => {
-        console.log("Success !")
-    }).catch(e => {
-        console.error("An error occurred :", e)
-    });
   }
 
   public onAnswerSelected(answer: string): void {
